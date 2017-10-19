@@ -1,0 +1,77 @@
+
+<include file="./Application/Admin/View/header.html" />
+<!-- END HEADER -->
+
+<!-- BEGIN CONTAINER -->
+
+<div class="page-container">
+
+    <!-- BEGIN SIDEBAR -->
+    <include file="./Application/Admin/View/sidebar.html" />
+
+
+    <!-- BEGIN PAGE -->
+
+    <div class="page-content">
+
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+        <div id="portlet-config" class="modal hide">
+
+            <div class="modal-header">
+
+                <button data-dismiss="modal" class="close" type="button"></button>
+
+                <h3>Widget Settings</h3>
+
+            </div>
+
+            <div class="modal-body">
+
+                Widget settings form goes here
+
+            </div>
+
+        </div>
+
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+        <!-- BEGIN PAGE CONTAINER-->
+
+        <div class="container-fluid">
+
+            <!-- BEGIN PAGE HEADER-->
+
+            <include file="./Application/Admin/View/nav.html" />
+            <!--内容区域-->
+            <div id="main">
+                <div style="text-align: right"><a class="btn" href="{:U('users/reg')}">用户注册</a></div>
+                <table class="table table-striped table-bordered table-hover mytable">
+                    <tr style="height: 50px;"><th>头像</th><th>用户ID</th><th>用户名</th><th>性别</th><th>注册时间</th><th>操作</th></tr>
+                    <volist name="arr" id="vo">
+                        <tr>
+                            <td><img src="__ROOT__/{$vo['avatar']|default='MBimg/3.jpeg'}" width="50" height="50"></td>
+                            <td><span class="label label-info">{$vo['uid']}</span></td>
+                            <td><span class="label label-success">{$vo['username']|htmlspecialchars}</span></td>
+                            <td><span class="label label-important">{$vo['sex']=="m"?男:女}</span></td>
+                            <td><span class="label label-inverse">{$vo['regtime']|date="Y-m-d H:i:s",###}</span></td>
+                            <td><i class="icon-pencil"></i> <a href="{:U('users/update','uid='.$vo['uid'])}">编辑</a> | <i class="icon-trash"></i> <a href="{:U('users/delete','uid='.$vo['uid'])}" onclick="return confirm('亲，数据无价，真的忍心删除吗？')" >删除</a></td>
+                        </tr>
+                    </volist>
+                </table>
+                <div class="pagination pagination-large">
+                    <ul>{$pageStr}</ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- END PAGE -->
+
+</div>
+
+<!-- END CONTAINER -->
+
+<include file="./Application/Admin/View/footer.html" />

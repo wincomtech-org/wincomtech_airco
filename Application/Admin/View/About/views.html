@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于我们</title>
+    <link rel="stylesheet" href="MBcss/style.css" type="text/css">
+</head>
+<body>
+<div style="width: 1000px; margin: auto;">
+    <div class="page_about">
+        <h3>品牌故事</h3>
+        {$resone['story']|htmlspecialchars_decode}
+        <h3>我们的理念</h3>
+        {$resone['philosophy']|htmlspecialchars_decode}
+        <h3>发展历程</h3>
+        <div class="development">
+            <volist name="Journeyarr" id="v">
+            <p><span>{$v['contents']|htmlspecialchars_decode}</span></p>
+            </volist>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

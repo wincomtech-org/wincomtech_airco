@@ -1,0 +1,79 @@
+<include file="./Application/Home/View/header.html" />
+<div class="clear"></div>
+<!-- page -->
+<div class="page_contain">
+    <!-- top img -->
+    <div class="page_top_img"><img src="TPimage/page.jpg" alt="" title=""></div>
+    <div class="w_contain m_page">
+        <!-- bread crumbs -->
+        <div class="bread_crumbs">
+            <span>当前位置：<a href="{:U('index/index')}">首页</a>><a href="{:U('product/index')}">产品中心</a></span>
+        </div>
+        <!-- page title -->
+        <h2 class="page_title"><img src="TPimage/column1.png" alt="" title=""></h2>
+        <!-- page main content -->
+        <div class="clear">
+            <ul class="page_product">
+                <volist name="Productarr" id="vo">
+                    <li>
+                        <a href="{:U('product/views','pid='.$vo['pid'])}"><img src="__ROOT__/{$vo['productimage']}" alt="{$vo['title']}" title="{$vo['title']}"></a>
+                        <span>{$vo['keywords']}</span>
+                        <a class="hover_cont" href="{:U('product/views','pid='.$vo['pid'])}">
+                            <span>{$vo['keywords']}</span>
+                            <span>证书编号：{$vo['certificate']}</span>
+                            <span>产品名称：{$vo['title']}</span>
+                            <span>型号: {$vo['num']}</span>
+                            <span>空调类型: {$vo['ktype']}</span>
+                            <span>冷暖类型: {$vo['wtype']}</span>
+                            <span>空调功率: {$vo['power']}</span>
+                            <span>适用面积: {$vo['area']}</span>
+                            <span>工作方式: {$vo['func']}</span>
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+            <style>
+                #pages {
+                    font-family: 宋体;
+                    padding: 14px 0 10px;
+                }
+                #pages li {
+                    display: inline;
+                    padding:0 5px;
+                }
+                #pages a {
+                    background: none repeat scroll 0 0 #ffffff;
+                    border: 1px solid #e3e3e3;
+                    color: #333333;
+                    display: inline-block;
+                    height: 25px;
+                    line-height: 25px;
+                    padding: 0 12px;
+                    text-align: center;
+                }
+                #pages a:hover {
+                    background: none repeat scroll 0 0 #f1f1f1;
+                    color: #000000;
+                    text-decoration: none;
+                }
+                #pages span {
+                    background: none repeat scroll 0 0 #b60000;
+                    color: #ffffff;
+                    display: inline-block;
+                    height: 23px;
+                    line-height: 23px;
+                    padding: 0 10px;
+                    text-align: center;
+                }
+            </style>
+            <div class="clear"></div>
+            <div id="pages" style="float:right;">
+                <ul>
+                    {$pageStr}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page end -->
+<include file="./Application/Home/View/footer.html" />
