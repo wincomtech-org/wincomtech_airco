@@ -14,14 +14,13 @@ return array(
     'DB_TYPE' => 'mysql', //nosql oracle mongodb
     'DB_PORT' => '3306', //mysql端口号
     'DB_USER' => 'root', //用户名
-    'DB_PWD' => '', //密码
-    'DB_NAME' => 'huanqiu', //数据库名
+    'DB_PWD' => 'root', //密码
+    'DB_NAME' => 'airco', //数据库名
     'DB_CHARSET' => 'utf8', //字符集设置
     'SHOW_PAGE_TRACE' =>false,//TP自带的调试Trace
     //tp框架支持很多的模版引擎 smarty 还有 smart
-    'TMPL_PARSE_STRING'  =>array(
+    'TMPL_PARSE_STRING'  => array(
         'TP' =>__ROOT__.'/Application/Home/View/', //模版里面直接写 TP 不需要写成 {TP}
         'MB' => __ROOT__.'/Application/Admin/View/'
-
     )
 );
