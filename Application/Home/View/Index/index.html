@@ -1,0 +1,108 @@
+<include file="./Application/Home/View/header.html" />
+<div class="clear"></div>
+<!-- slider -->
+<div class="flexslider">
+    <ul class="slides">
+        <volist name="Bannerarr" id="vo">
+            <li><a href="#"><img src="__ROOT__/{$vo['bannerimage']}" width="1920px" height="600px" alt=""></a></li>
+        </volist>
+    </ul>
+</div>
+<script type="text/javascript" src="TPjs/jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $(".flexslider").flexslider({
+            slideshowSpeed: 4000, //展示时间间隔ms
+            animationSpeed: 400, //滚动时间ms
+            touch: true, //是否支持触屏滑动
+            pauseOnHover:true//鼠标悬停上去是否暂停
+        });
+        $(".flexslider").hover(function(){
+            $(".flex-direction-nav li a.flex-prev").css("left","20px");
+            $(".flex-direction-nav li a.flex-next").css("right","20px");
+        },function(){
+            $(".flex-direction-nav li a.flex-prev").css("left","-46px");
+            $(".flex-direction-nav li a.flex-next").css("right","-46px");
+        })
+    });
+</script>
+<!-- home main -->
+<div class="column1">
+    <div class="w_contain">
+        <h2 class="column_head">
+            <a href="{:U('product/index')}"><img src="TPimage/column1.png" alt="产品中心" title="产品中心"></a>
+        </h2>
+        <ul class="product">
+            <volist name="Productarr" id="vo" offset="0" length="8">
+                <li>
+                    <a href="{:U('product/views','pid='.$vo['pid'])}">
+                        <img src="__ROOT__/{$vo['productimage']}" alt="{$vo['title']}" title="{$vo['title']}">
+                    </a>
+                    <span>{$vo['keywords']}</span>
+                </li>
+            </volist>
+        </ul>
+        <ul class="product">
+            <volist name="Productarr" id="vo" offset="8" length="8">
+                <li>
+                    <a href="{:U('product/views','pid='.$vo['pid'])}">
+                        <img src="__ROOT__/{$vo['productimage']}" alt="{$vo['title']}" title="{$vo['title']}">
+                    </a>
+                    <span>{$vo['keywords']}</span>
+                </li>
+            </volist>
+
+        </ul>
+        <ul class="product">
+            <volist name="Productarr" id="vo" offset="16" length="8">
+                <li>
+                    <a href="{:U('product/views','pid='.$vo['pid'])}">
+                        <img src="__ROOT__/{$vo['productimage']}" alt="{$vo['title']}" title="{$vo['title']}">
+                    </a>
+                    <span>{$vo['keywords']}</span>
+                </li>
+            </volist>
+        </ul>
+        <div class="clear"></div>
+        <div class="tab">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<div class="column2">
+    <div class="w_contain">
+        <h2 class="column_head">
+            <a href="#"><img src="TPimage/column2.png" alt="走进环球" title="走进环球"></a>
+        </h2>
+        <div class="about">
+            <img src="__ROOT__/{$Aboutarr[0]['aimage']}" alt="公司介绍" title="">
+
+                {:truncate_zh(htmlspecialchars_decode($Aboutarr[0]['story']),210,"...")}
+
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="column3">
+    <div class="w_contain">
+        <h2 class="column_head">
+            <a href="{:U('blogs/index')}"><img src="TPimage/column3.png" alt="新闻资讯" title="新闻资讯"></a>
+        </h2>
+        <div class="news">
+            <ul>
+                <volist name="Blogsarr" id="v">
+                     <li>
+                    <img src="__ROOT__/{$v['blogimage']}" alt="" title="">
+                     <a href="{:U('blogs/views','bid='.$v['bid'])}">
+                        <span class="news_title">{$v['title']}</span>
+                        <span class="news_cont">{:truncate_zh(strip_tags($v['contents']),200,"...")}</span>
+                     </a>
+                </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</div>
+<include file="./Application/Home/View/footer.html" />

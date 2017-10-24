@@ -1,0 +1,68 @@
+
+<include file="./Application/Admin/View/header.html" />
+<!-- END HEADER -->
+
+<!-- BEGIN CONTAINER -->
+
+<div class="page-container">
+
+    <!-- BEGIN SIDEBAR -->
+    <include file="./Application/Admin/View/sidebar.html" />
+
+
+    <!-- BEGIN PAGE -->
+
+    <div class="page-content">
+
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+        <div id="portlet-config" class="modal hide">
+
+            <div class="modal-header">
+
+                <button data-dismiss="modal" class="close" type="button"></button>
+
+                <h3>Widget Settings</h3>
+
+            </div>
+
+            <div class="modal-body">
+
+                Widget settings form goes here
+
+            </div>
+
+        </div>
+
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+        <!-- BEGIN PAGE CONTAINER-->
+
+        <div class="container-fluid">
+
+            <!-- BEGIN PAGE HEADER-->
+
+
+            <include file="./Application/Admin/View/nav.html" />
+            <!--内容区域-->
+            <div id="main">
+                <h3>更新友情链接</h3>
+                <form method="post" action={:U('friendlink/updateTodo',"fid=".$resone['fid'])} enctype="multipart/form-data">
+                    友情链接名称: <input type="text" name="fname" value="{$resone['fname']}"/><br />
+                    友情链接网址: <input type="text" name="flink" value="{$resone['flink']}" />网址必须以“http://”开头<br />
+                    <input type="hidden" name="fid" value="{$resone['fid']}">
+                    <input type="submit" value="更新友情链接" class="btn">
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- END PAGE -->
+
+</div>
+
+<!-- END CONTAINER -->
+
+<include file="./Application/Admin/View/footer.html" />
