@@ -1,0 +1,22 @@
+<include file="./Application/Home/View/header.html" />
+<div class="clear"></div>
+<!-- page -->
+<div class="page_contain">
+    <!-- top img -->
+    <div class="page_top_img"><img src="TPimage/page.jpg" alt="" title=""></div>
+    <div class="w_contain m_page">
+        <!-- bread crumbs -->
+        <div class="bread_crumbs">
+            <span>当前位置：<a href="index.html">首页</a>><a href="news.html">服务和支持</a></span>
+        </div>
+        <!-- page title -->
+        <h2 class="page_title"><img src="TPimage/column4.png" alt="" title=""></h2>
+        <!-- page main content -->
+        <div class="page_service">
+            {$Serverarr[0][contents]|htmlspecialchars_decode}
+        </div>
+    </div>
+</div>
+<!-- page end -->
+<!-- top -->
+<include file="./Application/Home/View/footer.html" />

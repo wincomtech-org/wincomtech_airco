@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="keywords" content="{$Webarr[0]['keywords']}">
+    <meta name="description" content="{$Webarr[0]['description']}">
+    <title>{$Webarr[0]['title']}</title>
+    <link rel="stylesheet" href="TPcss/common.css" type="text/css">
+    <link rel="stylesheet" href="TPcss/style.css" type="text/css">
+    <script type="text/javascript" src="TPjs/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="TPjs/load.js"></script>
+</head>
+<body>
+<!-- nav -->
+<div class="navcontainer">
+    <div class="w_contain">
+        <div class="logo">
+            <h1>
+                <a href="__ROOT__/index.php"><img src="__ROOT__/{$Logoarr[0]['logoimage']}" title="网站LOGO" alt="网站LOGO"></a>
+            </h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a current_name="Index" href="{:U('index/index')}">首页</a><img src="TPimage/ico1.png"></li>
+                <li><a current_name="Product" href="{:U('product/index')}">产品中心</a><img src="TPimage/ico2.png"></li>
+                <li><a current_name="Server" href="{:U('server/index')}">服务和支持</a><img src="TPimage/ico3.png"></li>
+                <li><a current_name="Blogs" href="{:U('blogs/index')}">新闻资讯</a><img src="TPimage/ico4.png"></li>
+                <li><a current_name="About" href="{:U('about/index')}">关于环球</a><img src="TPimage/ico5.png"></li>
+                <li><a current_name="Contact" href="{:U('contact/index')}">联系我们</a><img src="TPimage/ico6.png"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        // nav
+            $(".nav li").first().addClass("current");
+            $('.nav li').each(function(){
+                var current_name = $(this).find('a').attr('current_name');
+                var name="{$controller}";
+                if(current_name ==name){
+                    $(this).addClass("current").siblings().removeClass("current");
+                }
+            })
+    });
+</script>
+<!--<div class="m_nav">-->
+    <!--<h1>-->
+        <!--<a href="index.html"><img src="{$Logoarr[0]['logoimage']}" title="网站LOGO" alt="网站LOGO"></a>-->
+    <!--</h1>-->
+    <!--<img class="menu" src="TPimage/m_menu.png" title="导航" alt="导航">-->
+    <!--<div class="m_cont">-->
+        <!--<ul>-->
+            <!--<li><a href="{:U('index/index')}">首页</a><img src="TPimage/ico1.png"></li>-->
+            <!--<li><a href="{:U('product/index')}">产品中心</a><img src="TPimage/ico2.png"></li>-->
+            <!--<li><a href="{:U('server/index')}">服务和支持</a><img src="TPimage/ico3.png"></li>-->
+            <!--<li><a href="{:U('blogs/index')}">新闻资讯</a><img src="TPimage/ico4.png"></li>-->
+            <!--<li><a href="{:U('about/index')}">关于环球</a><img src="TPimage/ico5.png"></li>-->
+            <!--<li><a href="{:U('contact/index')}">联系我们</a><img src="TPimage/ico6.png"></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->
